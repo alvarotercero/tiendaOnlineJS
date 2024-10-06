@@ -1,0 +1,105 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
+
+/* Reset básico */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Body */
+
+body{
+    background-color: lavender;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Inicio nav */
+
+nav{
+    background-color: navy;
+
+    ul{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        list-style: none;
+        max-width: 56.25rem;
+
+        li{
+            text-align: center;
+            align-content: center;
+            width: 100%;
+
+            .logo {
+                    font-family: "Sixtyfour Convergence", sans-serif;
+                }
+
+            a {
+                display: block;
+                text-decoration: none;
+                font-size: 1.125rem;
+                color: lavender;
+                padding: 1rem;
+            }
+
+            .icons{
+                max-width: 3.75rem;
+            }
+        }
+    }
+}
+
+/* Fin nav */
+
+/* Inicio main */
+
+.cartShopping{
+    background-color: rgb(211, 211, 240);
+    color: navy;
+    width: 18.75rem;
+    margin: 1.25rem;
+    padding: 12px;
+    border: 0.125rem solid navy;
+    /* Ocultamos el cuadro de compra por defecto */
+    /* display: none; */
+
+    h3{
+        font-size: 24px;
+        margin: 1rem;
+    }
+
+    p{
+        font-size: 20px;
+        margin: 1rem;
+    }
+}
+
+.button{
+    background-color: navy;
+    color: lavender;
+    margin: 12px auto;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Fin main */
+
+/* Inicio footer */
+
+footer{
+    background-color: navy;
+    color: lavender;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* Fin footer */

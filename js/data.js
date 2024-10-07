@@ -1,4 +1,4 @@
-const productos = [
+const products = [
   {
     id: 1,
     titulo: "The Last of Us Part II",
@@ -7,7 +7,7 @@ const productos = [
     desarrollador: "Naughty Dog",
     precio: 59.99,
     stock: 25,
-    imagen: ""
+    imagen: "../images/thelastofus2.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const productos = [
     desarrollador: "CD Projekt Red",
     precio: 49.99,
     stock: 40,
-    imagen: ""
+    imagen: "../images/cyberpunk2077.jpg"
   },
   {
     id: 3,

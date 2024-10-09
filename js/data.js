@@ -7,7 +7,7 @@ const products = [
     desarrollador: "Naughty Dog",
     precio: 59.99,
     stock: 25,
-    imagen: "../images/thelastofus2.jpg"
+    imagen: "./images/thelastofus2.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const products = [
     desarrollador: "CD Projekt Red",
     precio: 49.99,
     stock: 40,
-    imagen: "../images/cyberpunk2077.jpg"
+    imagen: "./images/cyberpunk2077.jpg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const products = [
     desarrollador: "Nintendo",
     precio: 59.99,
     stock: 60,
-    imagen: ""
+    imagen: "./images/zeldabreathofthewild.jpg"
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const products = [
     desarrollador: "343 Industries",
     precio: 59.99,
     stock: 35,
-    imagen: ""
+    imagen: "./images/haloinfinite.jpg"
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const products = [
     desarrollador: "Rockstar Games",
     precio: 39.99,
     stock: 45,
-    imagen: ""
+    imagen: "./images/reddeadredemption2.jpg"
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ const products = [
     desarrollador: "Santa Monica Studio",
     precio: 69.99,
     stock: 30,
-    imagen: ""
+    imagen: "./images/godofwarragnarok.jpg"
   },
   {
     id: 7,
@@ -67,17 +67,17 @@ const products = [
     desarrollador: "Nintendo",
     precio: 59.99,
     stock: 70,
-    imagen: ""
+    imagen: "./images/animalcrossingnewhorizons.jpg"
   },
   {
     id: 8,
-    titulo: "Genshin Impact",
-    plataforma: "PC",
-    descripcion: "Un RPG de acción en un mundo abierto inspirado en la mitología asiática, donde los jugadores controlan a varios personajes con habilidades elementales únicas mientras exploran el vasto reino de Teyvat.",
-    desarrollador: "miHoYo",
-    precio: 0.00,  // Juego free-to-play
-    stock: 100,
-    imagen: ""
+    titulo: "Horizon Forbidden West",
+    plataforma: "PlayStation 5",
+    descripcion: "Aloy regresa en esta secuela para explorar nuevos territorios llenos de maravillas naturales y máquinas mortales, mientras descubre secretos antiguos que cambiarán el futuro de la humanidad.",
+    desarrollador: "Guerrilla Games",
+    precio: 69.99,
+    stock: 50,
+    imagen: "./images/horizonforbiddenwest.jpg"
   },
   {
     id: 9,
@@ -87,17 +87,17 @@ const products = [
     desarrollador: "Infinity Ward",
     precio: 69.99,
     stock: 50,
-    imagen: ""
+    imagen: "./images/callofdutymwii.jpg"
   },
   {
     id: 10,
-    titulo: "FIFA 24",
+    titulo: "EA Sports FC 24",
     plataforma: "Xbox Series X",
     descripcion: "El simulador de fútbol más popular del mundo, con gráficos realistas, nuevas mecánicas de juego y modos en línea que te permiten jugar con los mejores equipos y jugadores del mundo.",
     desarrollador: "EA Sports",
     precio: 59.99,
     stock: 80,
-    imagen: ""
+    imagen: "./images/easportsfc24.jpg"
   },
   {
     id: 11,
@@ -107,7 +107,7 @@ const products = [
     desarrollador: "Insomniac Games",
     precio: 49.99,
     stock: 65,
-    imagen: ""
+    imagen: "./images/spidermanmilesmorales.jpg"
   },
   {
     id: 12,
@@ -117,7 +117,7 @@ const products = [
     desarrollador: "Playground Games",
     precio: 59.99,
     stock: 90,
-    imagen: ""
+    imagen: "./images/forzahorizon5.jpg"
   },
   {
     id: 13,
@@ -127,7 +127,7 @@ const products = [
     desarrollador: "Capcom",
     precio: 59.99,
     stock: 55,
-    imagen: ""
+    imagen: "./images/residentevilvillage.jpg"
   },
   {
     id: 14,
@@ -137,7 +137,7 @@ const products = [
     desarrollador: "Sucker Punch Productions",
     precio: 49.99,
     stock: 35,
-    imagen: ""
+    imagen: "./images/ghostoftsushima.jpg"
   },
   {
     id: 15,
@@ -147,7 +147,7 @@ const products = [
     desarrollador: "Mojang Studios",
     precio: 29.99,
     stock: 100,
-    imagen: ""
+    imagen: "./images/minecraft.jpeg"
   },
   {
     id: 16,
@@ -157,7 +157,7 @@ const products = [
     desarrollador: "FromSoftware",
     precio: 59.99,
     stock: 20,
-    imagen: ""
+    imagen: "./images/elderring.jpg"
   },
   {
     id: 17,
@@ -167,7 +167,7 @@ const products = [
     desarrollador: "Ubisoft",
     precio: 49.99,
     stock: 60,
-    imagen: ""
+    imagen: "./images/assassinscreedvalhalla.jpg"
   },
   {
     id: 18,
@@ -177,7 +177,7 @@ const products = [
     desarrollador: "Blizzard Entertainment",
     precio: 39.99,
     stock: 85,
-    imagen: ""
+    imagen: "./images/overwatch2.jpg"
   },
   {
     id: 19,
@@ -187,7 +187,7 @@ const products = [
     desarrollador: "Bethesda Game Studios",
     precio: 69.99,
     stock: 50,
-    imagen: ""
+    imagen: "./images/starfield.jpg"
   },
   {
     id: 20,
@@ -197,6 +197,6 @@ const products = [
     desarrollador: "Blizzard Entertainment",
     precio: 59.99,
     stock: 75,
-    imagen: ""
+    imagen: "./images/diabloiv.jpg"
   }
 ];

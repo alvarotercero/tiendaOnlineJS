@@ -32,9 +32,18 @@ function printVideogame(videogame) {
     return article;
 }
 
-const videogamesSection = document.querySelector('section.videogames');
-const article = printVideogame(products[0]);
-videogamesSection.appendChild(article);
+function printVideogames(list, domElement) {
+    domElement.innerHTML = '';
+    for (let videogame of list) {
+        const article = printVideogame(videogame);
+        domElement.appendChild(article);
+    }
+}
 
-const article2 = printVideogame(products[1]);
-videogamesSection.appendChild(article2);
+const videogamesSection = document.querySelector('section.videogames');
+// const article = printVideogame(products[0]);
+// videogamesSection.appendChild(article);
+
+// const article2 = printVideogame(products[1]);
+// videogamesSection.appendChild(article2);
+printVideogames(products, videogamesSection)

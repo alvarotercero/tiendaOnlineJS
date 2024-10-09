@@ -64,6 +64,7 @@ nav{
     padding: 12px;
     border: 0.125rem solid navy;
     /* Ocultamos el cuadro de compra por defecto */
+    /* visibility: hidden; */
     display: none;
 
     h3{
@@ -88,22 +89,21 @@ nav{
 }
 
 .container{
-    /* display: flex;
-    flex-wrap: wrap; */
     max-width: 1000px;
-    margin: 10px auto;
+    margin: 10px auto 50px auto;
 }
 
 .videogames{
     display: flex;
-    
+    flex-wrap: wrap;
+    gap: 16px;
 
     article{
         max-width: 300px;
         border: 3px solid navy;
         border-radius: 20px;
         padding: 12px;
-        margin: 16px;
+        margin: 16px auto;
 
         img{
             max-width: 250px;

@@ -24,10 +24,19 @@ function printVideogame(videogame) {
 
     // Creación de h4 para precio
     const h4precio = document.createElement('h4');
+    h4precio.classList.add('price')
     h4precio.textContent = `Precio: ${videogame.precio}€`;
 
+    // Creación de botón de compra
+    const divbutton = document.createElement('div');
+    divbutton.classList.add('button');
+    divbutton.textContent = 'Comprar';
+    divbutton.addEventListener('click', () => {
+        arrayCart.push(videogame);
+    })
+
     // Añadimos los elementos al article
-    article.append(img, h3, h4plataforma, pdescripcion, pdesarrollador, h4precio);
+    article.append(img, h3, h4plataforma, pdescripcion, pdesarrollador, h4precio, divbutton);
 
     return article;
 }
@@ -41,9 +50,10 @@ function printVideogames(list, domElement) {
 }
 
 const videogamesSection = document.querySelector('section.videogames');
+const arrayCart = [];
 // const article = printVideogame(products[0]);
 // videogamesSection.appendChild(article);
 
 // const article2 = printVideogame(products[1]);
 // videogamesSection.appendChild(article2);
-printVideogames(products, videogamesSection)
+printVideogames(products, videogamesSection);

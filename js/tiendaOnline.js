@@ -36,7 +36,6 @@ function printVideogame(videogame) {
         // Evento para añadir el producto al carrito pulsando el botón
         divbutton.addEventListener('click', () => {
             arrayCart.push(videogame);
-            console.log(arrayCart);
             updateCart(arrayCart);
         });
     } else {
@@ -72,13 +71,15 @@ function updateCart(listCart) {
                 const divProduct = document.createElement('div');
 
                 const labelTitle = document.createElement('label');
-                labelTitle.htmlFor = `formTitle${videogame.id}`; // No sé si funcionará
+                labelTitle.htmlFor = `formTitle${videogame.id}`;
                 labelTitle.textContent = videogame.titulo;
 
                 const inputNumber = document.createElement('input');
                 inputNumber.type = 'number';
                 inputNumber.min = '0';
-                inputNumber.id = `formTitle${videogame.id}`; // No sé si funcionará
+                // Como máximo se puede comprar todo el stock
+                inputNumber.max = `${videogame.stock}`;
+                inputNumber.id = `formTitle${videogame.id}`;
                 inputNumber.value = '1';
                 inputNumber.classList.add('formTitle');
 
@@ -89,7 +90,12 @@ function updateCart(listCart) {
             } else {
                 // Si existe, aumentamos en uno su número en el carrito
                 const existingVideogame = document.getElementById(`formTitle${videogame.id}`);
-                existingVideogame.value = Number(existingVideogame.value) + 1;
+                // Comprobamos que dispongamos de stock
+                let currentValue = Number(existingVideogame.value);
+                if (currentValue < videogame.stock) {
+                    currentValue += 1;
+                    existingVideogame.value = currentValue;
+                }
             }
         }
     }
@@ -98,7 +104,6 @@ function updateCart(listCart) {
 const videogamesSection = document.querySelector('section.videogames');
 const divCart = document.querySelector('.cartShopping div');
 const h4Cart = document.getElementById('cartElement');
-// const cartForm = document.querySelector('form');
 const formProducts = document.getElementById('formProducts');
 
 const arrayCart = [];

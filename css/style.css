@@ -100,8 +100,8 @@ nav{
                 height: 28px;
                 background-color: navy;
                 color: lavender;
+                text-align: center;
                 padding: 6px;
-                /* float: right; */
                 margin-right: 28px;
                 border-radius: 12px;
                 border-width: 0;

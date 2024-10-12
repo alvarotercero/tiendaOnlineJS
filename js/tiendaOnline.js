@@ -31,11 +31,21 @@ function printVideogame(videogame) {
     const divbutton = document.createElement('div');
     divbutton.classList.add('button');
     divbutton.textContent = 'Comprar';
-    divbutton.addEventListener('click', () => {
-        arrayCart.push(videogame);
-    })
 
-    // Añadimos los elementos al article
+    if (videogame.stock > 0) {
+        // Evento para añadir el producto al carrito pulsando el botón
+        divbutton.addEventListener('click', () => {
+            arrayCart.push(videogame);
+            console.log(arrayCart);
+            updateCart(arrayCart);
+        });
+    } else {
+        // Si no hay stock, deshabilitamos el botón
+        divbutton.classList.add('disabled');
+        divbutton.textContent = 'Producto agotado';
+    }
+
+    // Añadimos todos los elementos al article
     article.append(img, h3, h4plataforma, pdescripcion, pdesarrollador, h4precio, divbutton);
 
     return article;
@@ -49,11 +59,48 @@ function printVideogames(list, domElement) {
     }
 }
 
-const videogamesSection = document.querySelector('section.videogames');
-const arrayCart = [];
-// const article = printVideogame(products[0]);
-// videogamesSection.appendChild(article);
+function updateCart(listCart) {
+    if (listCart.length > 0) {
+        h4Cart.innerHTML = '';
+        formProducts.innerHTML = '';
+        // Lista adicional para comprobar si ya existe
+        const aditionalArray = [];
 
-// const article2 = printVideogame(products[1]);
-// videogamesSection.appendChild(article2);
+        for (let videogame of listCart) {
+            // Si no existe, añadimos el elemento
+            if (!aditionalArray.includes(videogame)) {
+                const divProduct = document.createElement('div');
+
+                const labelTitle = document.createElement('label');
+                labelTitle.htmlFor = `formTitle${videogame.id}`; // No sé si funcionará
+                labelTitle.textContent = videogame.titulo;
+
+                const inputNumber = document.createElement('input');
+                inputNumber.type = 'number';
+                inputNumber.min = '0';
+                inputNumber.id = `formTitle${videogame.id}`; // No sé si funcionará
+                inputNumber.value = '1';
+                inputNumber.classList.add('formTitle');
+
+                divProduct.append(labelTitle, inputNumber);
+                formProducts.append(divProduct);
+
+                aditionalArray.push(videogame);
+            } else {
+                // Si existe, aumentamos en uno su número en el carrito
+                const existingVideogame = document.getElementById(`formTitle${videogame.id}`);
+                existingVideogame.value = Number(existingVideogame.value) + 1;
+            }
+        }
+    }
+}
+
+const videogamesSection = document.querySelector('section.videogames');
+const divCart = document.querySelector('.cartShopping div');
+const h4Cart = document.getElementById('cartElement');
+// const cartForm = document.querySelector('form');
+const formProducts = document.getElementById('formProducts');
+
+const arrayCart = [];
+
 printVideogames(products, videogamesSection);

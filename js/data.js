@@ -46,7 +46,7 @@ const products = [
     descripcion: "Una experiencia de mundo abierto donde el jugador vive la vida de un forajido en el Viejo Oeste, enfrentándose a decisiones morales complejas mientras intenta sobrevivir en un mundo en decadencia.",
     desarrollador: "Rockstar Games",
     precio: 39.99,
-    stock: 45,
+    stock: 0,
     imagen: "./images/reddeadredemption2.jpg"
   },
   {

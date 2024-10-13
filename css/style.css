@@ -109,6 +109,31 @@ nav{
                 margin: 0;
                 padding-left: 18px;
             }
+
+            .divButtons{
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .divButtons div{
+                display: inline-block;
+                background-color: rgba(0, 0, 128, 0.661);
+                color: lavender;
+                text-align: center;
+                align-content: center;
+                padding: 6px;
+                width: 28px;
+                height: 28px;
+                border-radius: 14px;
+            }
+
+            .divButtons div:first-child{
+                margin: -10px 0 10px 0;
+            }
+
+            .divButtons div:last-child{
+                margin: -10px 16px 10px 10px;
+            }
         }
 
         #pTotal{

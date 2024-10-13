@@ -24,7 +24,7 @@ function printVideogame(videogame) {
 
     // Creación de h4 para precio
     const h4precio = document.createElement('h4');
-    h4precio.classList.add('price')
+    h4precio.classList.add('price');
     h4precio.textContent = `Precio: ${videogame.precio}€`;
 
     // Creación de botón de compra
@@ -86,24 +86,34 @@ function updateCart(listCart) {
     let newTotalPrice = 0;
 
     for (let videogame of listCart) {
-            const divProduct = document.createElement('div');
-            divProduct.classList.add('divProduct');
+        const divProduct = document.createElement('div');
+        divProduct.classList.add('divProduct');
 
-            const h4Title = document.createElement('h4');
-            h4Title.textContent = videogame.titulo;
+        const h4Title = document.createElement('h4');
+        h4Title.textContent = videogame.titulo;
 
-            const divNumber = document.createElement('div');
-            const pNumber = document.createElement('p');
-            pNumber.textContent = videogame.quantity;
-            pNumber.id = `pNumber${videogame.id}`;
-            divNumber.appendChild(pNumber);
-            divNumber.classList.add('divNumber');
+        const divNumber = document.createElement('div');
+        const pNumber = document.createElement('p');
+        pNumber.textContent = videogame.quantity;
+        pNumber.id = `pNumber${videogame.id}`;
+        divNumber.appendChild(pNumber);
+        divNumber.classList.add('divNumber');
+            
+        const divButtons = document.createElement('div');
+        divButtons.classList.add('divButtons');
+        const divPlus = document.createElement('div');
+        divPlus.textContent = '+';
+        divPlus.id = `divPlus${videogame.id}`;
+        const divMinus = document.createElement('div');
+        divMinus.textContent = '-';
+        divMinus.id = `divMinus${videogame.id}`;
+        divButtons.append(divPlus, divMinus);
 
-            const productPrice = document.createElement('p');
-            productPrice.classList.add('pPrice');
-            productPrice.textContent = `Precio: ${videogame.precio} €`;
+        const productPrice = document.createElement('p');
+        productPrice.classList.add('pPrice');
+        productPrice.textContent = `Precio/u: ${videogame.precio} €`;
 
-            divProduct.append(h4Title, divNumber, productPrice);
+        divProduct.append(h4Title, divNumber, productPrice, divButtons);
         cartProducts.append(divProduct);
         
         // Recalculamos el total sumando el precio por la cantidad

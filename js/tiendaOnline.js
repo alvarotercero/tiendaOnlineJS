@@ -70,8 +70,9 @@ function addProductToCart(videogame) {
             existingProduct.quantity += 1;
             updateCart(arrayCart);
         } else {
-            alert(`En estos momentos no disponemos de suficiente stock. 
-                    Disculpe las molestias.`);
+            alert(`
+                En estos momentos no disponemos de suficiente stock. 
+                Disculpe las molestias.`);
         }
     } else {
         // Si no está en el carrito, lo añadimos con una cantidad inicial de 1
@@ -111,7 +112,8 @@ function updateCart(listCart) {
                 videogame.quantity += 1;
                 updateCart(listCart);
             } else {
-                alert(`En estos momentos no disponemos de suficiente stock. 
+                alert(`
+                    En estos momentos no disponemos de suficiente stock. 
                     Disculpe las molestias.`);
             }
         });
@@ -158,9 +160,11 @@ const h4Cart = document.getElementById('cartElement');
 const cartProducts = document.getElementById('cartProducts');
 const pTotal = document.getElementById('pTotal');
 const closeButton = document.querySelector('.close');
+const emptyButton = document.getElementById('emptyButton');
+const confirmButton = document.getElementById('confirmButton');
 let totalPrice = 0;
 
-const arrayCart = [];
+let arrayCart = [];
 
 printVideogames(products, videogamesSection);
 
@@ -178,5 +182,22 @@ closeButton.addEventListener('click', () => {
         cartShopping.classList.remove('visible');
     } else {
         cartShopping.classList.add('visible');
+    }
+});
+
+// Evento para vaciar el carro de compra
+emptyButton.addEventListener('click', () => {
+    arrayCart = [];
+    updateCart(arrayCart);
+});
+
+// Evento para confirmar compra
+confirmButton.addEventListener('click', () => {
+    if (confirm('¿Desea comprar los artículos del carro de compra?')) {
+        alert(`
+            Muchas gracias por comprar en Pixel Kingdom.
+            Recibirá la información del pedido por email.`);
+        arrayCart = [];
+        updateCart(arrayCart);
     }
 });

@@ -43,6 +43,16 @@ function printVideogame(videogame) {
         divbutton.textContent = 'Producto agotado';
     }
 
+    // Evento para aumentar la escala al entrar en el article
+    article.addEventListener('mouseenter', (event) => {
+        event.target.style.transform = 'scale(1.05)';
+    });
+
+    // Evento para volver a la escala original
+    article.addEventListener('mouseleave', (event) => {
+        event.target.style.transform = 'scale(1)';
+    });
+
     // Añadimos todos los elementos al article
     article.append(img, h3, h4plataforma, pdescripcion, pdesarrollador, h4precio, divbutton);
 
@@ -193,11 +203,15 @@ emptyButton.addEventListener('click', () => {
 
 // Evento para confirmar compra
 confirmButton.addEventListener('click', () => {
-    if (confirm('¿Desea comprar los artículos del carro de compra?')) {
+    if (arrayCart.length !== 0) {
+        if (confirm('¿Desea comprar los artículos del carro de compra?')) {
         alert(`
             Muchas gracias por comprar en Pixel Kingdom.
             Recibirá la información del pedido por email.`);
         arrayCart = [];
         updateCart(arrayCart);
+        }
+    } else {
+        alert('Su carro de compra está vacío');
     }
 });

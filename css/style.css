@@ -57,7 +57,7 @@ nav{
 /* Inicio main */
 
 .cartShopping{
-    position: absolute;
+    position: fixed;
     top: -1000px;
     background-color: rgb(211, 211, 240);
     color: navy;
@@ -66,6 +66,7 @@ nav{
     padding: 12px;
     border: 0.125rem solid navy;
     float: left;
+    z-index: 1;
     transition: top 0.5s ease;
 
     h3{
@@ -184,11 +185,6 @@ nav{
     cursor: not-allowed;
 }
 
-/* Estilo para ocultar elementos */
-/* .displaynone{
-    display: none;
-} */
-
 .container{
     max-width: 1000px;
     margin: 10px auto 50px auto;
@@ -203,11 +199,12 @@ nav{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        max-width: 300px;
+        width: 300px;
         border: 3px solid navy;
         border-radius: 20px;
         padding: 12px;
         margin: 16px auto;
+        transition: transform 0.3s ease;
 
         img{
             max-width: 250px;
@@ -227,8 +224,6 @@ nav{
             padding: 4px 12px;
         }
     }
-
-    
 }
 
 /* Fin main */

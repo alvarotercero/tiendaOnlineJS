@@ -35,9 +35,6 @@ function printVideogame(videogame) {
     if (videogame.stock > 0) {
         // Evento para añadir el producto al carrito pulsando el botón
         divbutton.addEventListener('click', () => {
-            // ¿Meter la siguiente línea en el método updateCart?
-            // arrayCart.push(videogame);
-            // updateCart(arrayCart);
             addProductToCart(videogame);
         });
     } else {
@@ -61,6 +58,9 @@ function printVideogames(list, domElement) {
 }
 
 function addProductToCart(videogame) {
+    // Hacemos visible el carrito
+    cartShopping.classList.add('visible');
+    
     // Si el producto ya está en el carrito, actualizamos la cantidad y el precio
     const existingProduct = arrayCart.find(item => item.id === videogame.id);
 
@@ -70,7 +70,8 @@ function addProductToCart(videogame) {
             existingProduct.quantity += 1;
             updateCart(arrayCart);
         } else {
-            console.log('No hay suficiente stock');
+            alert(`En estos momentos no disponemos de suficiente stock. 
+                    Disculpe las molestias.`);
         }
     } else {
         // Si no está en el carrito, lo añadimos con una cantidad inicial de 1
@@ -98,15 +99,40 @@ function updateCart(listCart) {
         pNumber.id = `pNumber${videogame.id}`;
         divNumber.appendChild(pNumber);
         divNumber.classList.add('divNumber');
-            
+        
+        // Botones para cambiar la cantidad en el carrito
         const divButtons = document.createElement('div');
         divButtons.classList.add('divButtons');
         const divPlus = document.createElement('div');
         divPlus.textContent = '+';
         divPlus.id = `divPlus${videogame.id}`;
+        divPlus.addEventListener('click', () => {
+            if (videogame.quantity < videogame.stock) {
+                videogame.quantity += 1;
+                updateCart(listCart);
+            } else {
+                alert(`En estos momentos no disponemos de suficiente stock. 
+                    Disculpe las molestias.`);
+            }
+        });
+
         const divMinus = document.createElement('div');
         divMinus.textContent = '-';
         divMinus.id = `divMinus${videogame.id}`;
+        divMinus.addEventListener('click', () => {
+            if (videogame.quantity > 1) {
+                videogame.quantity -= 1;
+                updateCart(listCart);
+            } else {
+                if (confirm('¿Desea eliminar el producto del carro de compra?')) {
+                    const index = listCart.findIndex(item => item.id === videogame.id);
+                    if (index !== -1) {
+                        listCart.splice(index, 1);
+                        updateCart(listCart);
+                    }
+                }
+            }
+        })
         divButtons.append(divPlus, divMinus);
 
         const productPrice = document.createElement('p');
@@ -125,12 +151,32 @@ function updateCart(listCart) {
 }
 
 const videogamesSection = document.querySelector('section.videogames');
+const cartShopping = document.querySelector('.cartShopping');
+const cartIcon = document.querySelector('.fa-cart-shopping');
 const divCart = document.querySelector('.cartShopping div');
 const h4Cart = document.getElementById('cartElement');
 const cartProducts = document.getElementById('cartProducts');
 const pTotal = document.getElementById('pTotal');
+const closeButton = document.querySelector('.close');
 let totalPrice = 0;
 
 const arrayCart = [];
 
 printVideogames(products, videogamesSection);
+
+// Eventos para hacer visible o esconder el carro de compra
+cartIcon.addEventListener('click', () => {
+    if (cartShopping.classList.contains('visible')) {
+        cartShopping.classList.remove('visible');
+    } else {
+        cartShopping.classList.add('visible');
+    }
+});
+
+closeButton.addEventListener('click', () => {
+    if (cartShopping.classList.contains('visible')) {
+        cartShopping.classList.remove('visible');
+    } else {
+        cartShopping.classList.add('visible');
+    }
+});

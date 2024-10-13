@@ -57,15 +57,16 @@ nav{
 /* Inicio main */
 
 .cartShopping{
+    position: absolute;
+    top: -1000px;
     background-color: rgb(211, 211, 240);
     color: navy;
     width: 18.75rem;
     margin: 1.25rem;
     padding: 12px;
     border: 0.125rem solid navy;
-    /* Ocultamos el cuadro de compra por defecto */
-    /* display: none; */
     float: left;
+    transition: top 0.5s ease;
 
     h3{
         font-size: 24px;
@@ -143,7 +144,24 @@ nav{
             font-weight: bold;
             text-align: right;
         }
+
+        .close{
+            display: flex;
+            justify-content: center;
+        }
+
+        .fa-angles-up{
+            background-color: navy;
+            color: lavender;
+            margin-top: 8px;
+            padding: 6px;
+            border-radius: 14px;
+        }
     }
+}
+
+.visible{
+    top: 0;
 }
 
 .button{

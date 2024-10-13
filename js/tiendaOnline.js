@@ -35,8 +35,10 @@ function printVideogame(videogame) {
     if (videogame.stock > 0) {
         // Evento para añadir el producto al carrito pulsando el botón
         divbutton.addEventListener('click', () => {
-            arrayCart.push(videogame);
-            updateCart(arrayCart);
+            // ¿Meter la siguiente línea en el método updateCart?
+            // arrayCart.push(videogame);
+            // updateCart(arrayCart);
+            addProductToCart(videogame);
         });
     } else {
         // Si no hay stock, deshabilitamos el botón
@@ -58,54 +60,58 @@ function printVideogames(list, domElement) {
     }
 }
 
-function updateCart(listCart) {
-    if (listCart.length > 0) {
-        h4Cart.innerHTML = '';
-        cartProducts.innerHTML = '';
-        // Lista adicional para comprobar si ya existe
-        const aditionalArray = [];
+function addProductToCart(videogame) {
+    // Si el producto ya está en el carrito, actualizamos la cantidad y el precio
+    const existingProduct = arrayCart.find(item => item.id === videogame.id);
 
-        for (let videogame of listCart) {
-            // Si no existe, añadimos el elemento
-            if (!aditionalArray.includes(videogame)) {
-                const divProduct = document.createElement('div');
-                divProduct.classList.add('divProduct');
-
-                const h4Title = document.createElement('h4');
-                h4Title.textContent = videogame.titulo;
-
-                const divNumber = document.createElement('div');
-                const pNumber = document.createElement('p');
-                pNumber.textContent = '1';
-                pNumber.id = `pNumber${videogame.id}`;
-                divNumber.appendChild(pNumber);
-                divNumber.classList.add('divNumber');
-
-                const productPrice = document.createElement('p');
-                productPrice.classList.add('pPrice');
-                productPrice.textContent = `Precio: ${videogame.precio} €`;
-
-                divProduct.append(h4Title, divNumber, productPrice);
-                cartProducts.append(divProduct);
-
-                // Añadimos el elemento al listado adicional para que no se repita
-                aditionalArray.push(videogame);
-
-                // Sumamos el precio al total
-                totalPrice += videogame.precio;
-                pTotal.textContent = `Total: ${totalPrice} €`;
-            } else {
-                // Si existe, aumentamos en uno su número en el carrito
-                const existingVideogame = document.getElementById(`pNumber${videogame.id}`);
-                // // Comprobamos que dispongamos de stock
-                let amount = Number(existingVideogame.textContent);
-                if (amount < videogame.stock) {
-                    amount += 1;
-                    existingVideogame.textContent = amount;
-                }
-            }
+    if (existingProduct) {
+        // Comprobamos que no supere el stock disponible
+        if (existingProduct.quantity < videogame.stock) {
+            existingProduct.quantity += 1;
+            updateCart(arrayCart);
+        } else {
+            console.log('No hay suficiente stock');
         }
+    } else {
+        // Si no está en el carrito, lo añadimos con una cantidad inicial de 1
+        videogame.quantity = 1;
+        arrayCart.push(videogame);
+        updateCart(arrayCart);
     }
+}
+
+function updateCart(listCart) {
+    h4Cart.innerHTML = '';
+    cartProducts.innerHTML = '';
+    let newTotalPrice = 0;
+
+    for (let videogame of listCart) {
+            const divProduct = document.createElement('div');
+            divProduct.classList.add('divProduct');
+
+            const h4Title = document.createElement('h4');
+            h4Title.textContent = videogame.titulo;
+
+            const divNumber = document.createElement('div');
+            const pNumber = document.createElement('p');
+            pNumber.textContent = videogame.quantity;
+            pNumber.id = `pNumber${videogame.id}`;
+            divNumber.appendChild(pNumber);
+            divNumber.classList.add('divNumber');
+
+            const productPrice = document.createElement('p');
+            productPrice.classList.add('pPrice');
+            productPrice.textContent = `Precio: ${videogame.precio} €`;
+
+            divProduct.append(h4Title, divNumber, productPrice);
+        cartProducts.append(divProduct);
+        
+        // Recalculamos el total sumando el precio por la cantidad
+        newTotalPrice += videogame.precio * videogame.quantity;
+    }
+    // Redondeamos para tener dos decimales
+    totalPrice = newTotalPrice.toFixed(2);
+    pTotal.textContent = `Total: ${totalPrice} €`;
 }
 
 const videogamesSection = document.querySelector('section.videogames');

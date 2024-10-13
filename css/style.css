@@ -142,9 +142,9 @@ nav{
 }
 
 /* Estilo para ocultar elementos */
-.displaynone{
+/* .displaynone{
     display: none;
-}
+} */
 
 .container{
     max-width: 1000px;

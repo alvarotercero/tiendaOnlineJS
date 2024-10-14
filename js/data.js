@@ -1,75 +1,90 @@
-const productos = [
+const plantas = [
     {
-        id: 1,
-        nombre: "Monstera Deliciosa",
-        imagen: "https://ejemplo.com/monstera.jpg",
-        descripcion: "Planta tropical con grandes hojas verdes, ideal para interiores con luz moderada.",
-        precio: 29.99,
-        stock: 12
-    },
-    {
-        id: 2,
-        nombre: "Cactus Saguaro",
-        imagen: "https://ejemplo.com/saguaro.jpg",
-        descripcion: "Cactus de gran tamaño, muy resistente a climas secos.",
-        precio: 45.00,
-        stock: 8
-    },
-    {
-        id: 3,
-        nombre: "Helecho Nephrolepis",
-        imagen: "https://ejemplo.com/helecho.jpg",
-        descripcion: "Helecho con hojas delicadas, ideal para ambientes húmedos.",
-        precio: 18.50,
-        stock: 20
-    },
-    {
-        id: 4,
-        nombre: "Lavanda",
-        imagen: "https://ejemplo.com/lavanda.jpg",
-        descripcion: "Planta aromática de flores moradas, excelente para jardines y balcones.",
-        precio: 15.99,
-        stock: 30
-    },
-    {
-        id: 5,
-        nombre: "Ficus Elástica",
-        imagen: "https://ejemplo.com/ficus.jpg",
-        descripcion: "Planta con hojas gruesas y brillantes, muy utilizada en decoración interior.",
-        precio: 35.00,
-        stock: 10
-    },
-    {
-        id: 6,
         nombre: "Aloe Vera",
-        imagen: "https://ejemplo.com/aloe.jpg",
-        descripcion: "Planta suculenta con propiedades medicinales, fácil de cuidar.",
-        precio: 22.50,
-        stock: 25
+        imagen: "imagenes/aloe-vera.jpg",
+        pDescripcion: "Planta suculenta conocida por sus propiedades medicinales. ",
+        tipoPlanta: "Interior",
+        precio: 8.99
     },
-    {
-        id: 7,
-        nombre: "Bonsai Japonés",
-        imagen: "https://ejemplo.com/bonsai.jpg",
-        descripcion: "Árbol miniatura ideal para interiores, requiere cuidados específicos.",
-        precio: 50.00,
-        stock: 5
-    },
-    {
-        id: 8,
-        nombre: "Pothos Dorado",
-        imagen: "https://ejemplo.com/pothos.jpg",
-        descripcion: "Planta de interior de fácil mantenimiento, con hojas en forma de corazón.",
-        precio: 12.99,
-        stock: 40
-    },
-    {
-        id: 9,
-        nombre: "Orquídea Phalaenopsis",
-        imagen: "https://ejemplo.com/orquidea.jpg",
-        descripcion: "Planta de flores elegantes, ideal para ambientes con luz indirecta.",
-        precio: 25.99,
-        stock: 18
-    }
-];
 
+    {
+        nombre: "Cactus",
+        imagen: "imagenes/cactus.jpg",
+        pDescripcion: "Planta resistente que necesita poca agua.",
+        tipoPlanta: "Exterior",
+        precio: 5.99
+    },
+    {
+        nombre: "Bonsái",
+        imagen: "imagenes/bonsai.jpg",
+        pDescripcion: "Árbol en miniatura, ideal para decorar interiores y exteriores.",
+        tipoPlanta: "Interior",
+        precio: 29.99
+    },
+    {
+        nombre: "Helecho",
+        imagen: "imagenes/Helecho.jpg",
+        pDescripcion: "Planta de hojas frondosas que necesita un ambiente húmedo.",
+        tipoPlanta: "Exterior",
+        precio: 12.50
+    },
+    {
+        nombre: "Lavanda",
+        imagen: "imagenes/lavanda.jpg",
+        pDescripcion: "Planta aromática con flores de color morado, conocida por sus propiedades relajantes.",
+        tipoPlanta: "Exterior",
+        precio: 9.99
+    },
+    {
+        nombre: "Palmera de salón",
+        imagen: "imagenes/palmerasalon.jpg",
+        pDescripcion: "Planta alta de hojas anchas, perfecta para interiores amplios.",
+        tipoPlanta: "Interior",
+        precio: 24.99
+    },
+    {
+        nombre: "Ficus",
+        imagen: "imagenes/ficus.jpg",
+        pDescripcion: "Planta de interior muy popular por su resistencia y belleza.",
+        tipoPlanta: "Interior",
+        precio: 14.99
+    },
+    {
+        nombre: "Dracaena",
+        imagen: "imagenes/dracaena.jpg",
+        pDescripcion: "Planta de interior resistente, con hojas largas y verdes.",
+        tipoPlanta: "Interior",
+        precio: 19.50
+    },
+    {
+        nombre: "Rosa del Desierto",
+        imagen: "imagenes/rosadesierto.jpg",
+        pDescripcion: "Planta con flores exóticas, resistente al calor y perfecta para exterior.",
+        tipoPlanta: "Exterior",
+        precio: 22.75
+    },
+    {
+        nombre: "Girasol",
+        imagen: "imagenes/girasol.jpg",
+        pDescripcion: "Planta que sigue la luz del sol, ideal para exteriores con mucha luz.",
+        tipoPlanta: "Exterior",
+        precio: 3.50
+    },
+    {
+        nombre: "Cinta",
+        imagen: "imagenes/cinta.jpg",
+        pDescripcion: "Planta colgante muy popular por su fácil cuidado, ideal para interiores.",
+        tipoPlanta: "Interior",
+        precio: 6.99
+    },
+    {
+        nombre: "Calathea",
+        imagen: "imagenes/calathea.jpg",
+        pDescripcion: "Planta de interior con hojas vistosas que cierran por la noche.",
+        tipoPlanta: "Interior",
+        precio: 17.99
+    },
+
+
+
+];

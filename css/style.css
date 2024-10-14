@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: #28a745;
+    background-color: #76b31b;
     padding: 20px 0;
 }
 
@@ -21,21 +21,18 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-
 }
 
 h1 {
     color: white;
     font-size: 28px;
-    margin-right: 50px;
-
+    margin-right: 100px;
 }
 
 .nav-menu {
     display: flex;
     justify-content: center;
     flex-grow: 1;
-
 }
 
 .nav-menu a {
@@ -47,9 +44,166 @@ h1 {
 
 .nav-menu a:hover {
     color: #f0f0f0;
+}
+
+.iconos {
+    display: flex;
+    color: white;
+    list-style: none;
+    cursor: pointer;
+}
+
+.iconos li {
+    margin-right: 20px;
+    transition: color 0.3s ease;
+    /* Añadido para transición suave */
+}
+
+.iconos li:hover {
+    color: #f0f0f0;
+    transition: color 0.3s ease;
+    /* Cambia a un color claro cuando pases el mouse */
+}
+
+.iconos li .last-child {
+    margin-right: 0;
+}
+
+#filtros {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#filtros button {
+    background-color: #76b31b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#filtros button:hover {
+    background-color: darkgreen;
+}
+
+/* Main */
+#plantas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    justify-items: center;
+    margin: 0 auto;
+    padding: 5px;
+    max-width: 900px;
+    box-shadow: 0px 8px 6px #05d75d;
+}
+
+#plantas article {
+    border: 1px solid rgb(156, 219, 19);
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    margin: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+#plantas article:hover {
+    transform: scale(1.05);
+    /* Animación al pasar el mouse */
+}
+
+#plantas img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 0;
+}
+
+#plantas h2 {
+    background-color: #76b31b;
+    font-family: satisfy;
+}
+
+#plantas p {
+    margin: 0;
+    font-family: satisfy;
 
 }
 
+#plantas ul {
+    font-size: 0.9em;
+    list-style: none;
+    font-weight: 700;
+    text-align: center;
+}
+
+.btn-agregar {
+    background-color: chocolate;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background-color: darkgreen;
+    transform: scale(1.1);
+}
+
+.container {
+    background-color: #76b31b;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
 
 
-/* main */
+/* Estilos para el carrito */
+#carrito {
+    position: fixed;
+    /* Fijo en la pantalla */
+    top: 0;
+    /* Alineado en la parte superior */
+    left: 0;
+    /* Alineado en la parte izquierda */
+    width: 300px;
+    /* Ancho del carrito */
+    /* Altura completa de la pantalla */
+    background-color: #76b31b;
+    /* Color de fondo */
+    color: white;
+    /* Color del texto */
+    padding: 20px;
+    /* Espaciado interno */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* Sombra para un mejor aspecto */
+    z-index: 1000;
+    /* Para estar por encima de otros elementos */
+}
+
+.carrito-visible {
+    left: 0;
+
+    /* Mueve el carrito hacia dentro de la pantalla */
+}
+
+.carrito-oculto {
+    left: -350px;
+    /* Esconde el carrito */
+}
+
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-carrito li {
+    margin: 10px 0;
+}

@@ -67,16 +67,16 @@ function aumentarCantidad(event) {
 
 // Mostrar u ocultar el carrito
 document.querySelector('.fa-cart-shopping').addEventListener('click', () => {
-    const carritoElement = document.getElementById('carrito');
+    const carritoElement = document.querySelector('.carrito');
     carritoElement.classList.toggle('carrito-visible');//MOSTRAR
     carritoElement.classList.toggle('carrito-oculto');//OCULTAR
     console.log(carritoElement.classList.contains('carrito-visible') ? 'Carrito visible' : 'Carrito oculto');
 
 });
 document.getElementById('cerrar-carrito').addEventListener('click', () => {
-    const carritoElement = document.getElementById('carrito');
-    carritoElement.classList.remove('carrito-visible'); // Asegúrate de ocultar el carrito
-    carritoElement.classList.add('carrito-oculto'); // Añade la clase de oculto
+    const carritoElement = document.querySelector('.carrito');
+    carritoElement.classList.remove('carrito-visible');
+    carritoElement.classList.add('carrito-oculto');
     console.log('Carrito oculto');
 });
 

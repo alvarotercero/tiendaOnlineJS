@@ -1,48 +1,87 @@
-
-let carrito = []; // Arreglo para almacenar los artículos en el carrito
+let carrito = []; // almacenar los artículos en el carrito
 
 // Función para agregar una planta al carrito
 function agregarAlCarrito(planta) {
-    carrito.push(planta);
-    actualizarCarrito(); // Actualiza la vista del carrito después de agregar un producto
+    // Verificar si el producto ya está en el carrito
+    const productoEnCarrito = carrito.find(item => item.nombre === planta.nombre);
+    if (productoEnCarrito) {
+        productoEnCarrito.cantidad++;
+    } else {
+        planta.cantidad = 1;
+        carrito.push(planta);
+    }
+    actualizarCarrito();
 }
 
 // Función para actualizar la vista del carrito
 function actualizarCarrito() {
     const listaCarrito = document.getElementById('lista-carrito');
-    listaCarrito.innerHTML = ''; // Limpiar la lista antes de actualizar
+    const totalCarrito = document.createElement('li');
+    listaCarrito.innerHTML = '';
 
-    // Verificar si el carrito tiene elementos
+
     if (carrito.length === 0) {
         listaCarrito.innerHTML = '<li>El carrito está vacío.</li>';
         console.log("El carrito está vacío");
     } else {
-        carrito.forEach(planta => {
+        carrito.forEach((planta, index) => {
             const li = document.createElement('li');
-            li.textContent = `${planta.nombre} - ${planta.precio} €`;
+            li.innerHTML = `
+                ${planta.nombre} - ${planta.precio} € x ${planta.cantidad}
+                <button class="btn-menos" data-index="${index}">-</button>
+                <button class="btn-mas" data-index="${index}">+</button>
+            `;
             listaCarrito.appendChild(li);
-            console.log(`Agregado al carrito: ${planta.nombre} - ${planta.precio} €`); // Agregado para depuración
         });
+
+        // total carrito
+        const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+        totalCarrito.textContent = `Total: ${total.toFixed(2)} €`;
+        listaCarrito.appendChild(totalCarrito);
     }
+
+    // botones + -
+    document.querySelectorAll('.btn-menos').forEach(button => {
+        button.addEventListener('click', disminuirCantidad);
+    });
+    document.querySelectorAll('.btn-mas').forEach(button => {
+        button.addEventListener('click', aumentarCantidad);
+    });
+}
+
+function disminuirCantidad(event) {
+    const index = event.target.dataset.index;
+    if (carrito[index].cantidad > 1) {
+        carrito[index].cantidad--;
+    } else {
+        carrito.splice(index, 1);
+    }
+    actualizarCarrito();
+}
+
+function aumentarCantidad(event) {
+    const index = event.target.dataset.index;
+    carrito[index].cantidad++;
+    actualizarCarrito();
 }
 
 // Mostrar u ocultar el carrito
 document.querySelector('.fa-cart-shopping').addEventListener('click', () => {
-
     const carritoElement = document.getElementById('carrito');
-    carritoElement.style.left = '0'; // Fuerza el carrito a mostrarse
-    console.log('Carrito visible');
+    carritoElement.classList.toggle('carrito-visible');//MOSTRAR
+    carritoElement.classList.toggle('carrito-oculto');//OCULTAR
+    console.log(carritoElement.classList.contains('carrito-visible') ? 'Carrito visible' : 'Carrito oculto');
+
 });
-//     carritoElement.classList.toggle('carrito-visible');
-//     console.log(carritoElement.classList.contains('carrito-visible') ? 'Carrito visible' : 'Carrito oculto');
-// });
+document.getElementById('cerrar-carrito').addEventListener('click', () => {
+    const carritoElement = document.getElementById('carrito');
+    carritoElement.classList.remove('carrito-visible'); // Asegúrate de ocultar el carrito
+    carritoElement.classList.add('carrito-oculto'); // Añade la clase de oculto
+    console.log('Carrito oculto');
+});
 
 
-
-
-
-//mio//
-
+// Función para pintar las plantas en la página principal
 function pintarPlanta(planta) {
     const article = document.createElement('article');
     const h2 = document.createElement('h2');
@@ -57,46 +96,30 @@ function pintarPlanta(planta) {
     btnAgregarCarrito.classList.add('btn-agregar');
 
     btnAgregarCarrito.addEventListener('click', () => {
-        agregarAlCarrito(planta); // Agrega la planta al carrito chat gpt
+        agregarAlCarrito(planta); // Agrega la planta al carrito
         console.log(`Se agregó ${planta.nombre} al carrito`);
     });
 
     h2.textContent = planta.nombre;
     img.src = planta.imagen;
     pDescripcion.textContent = planta.pDescripcion;
-    pCategoria.textContent = ` Tipo de planta: ${planta.tipoPlanta}`;
+    pCategoria.textContent = `Tipo de planta: ${planta.tipoPlanta}`;
     liPrecio.textContent = `Precio: ${planta.precio} €`;
     ul.appendChild(liPrecio);
     article.append(h2, img, pDescripcion, pCategoria, ul, btnAgregarCarrito);
 
-
     const contenedor = document.getElementById('plantas');
-    if (contenedor) {
-        contenedor.appendChild(article);
-    } else {
-        console.error("error en 'plantas'");
-    }
+    contenedor.appendChild(article);
 }
 
-const plantaEjemplo = {
-    nombre: "Aloe Vera",
-    imagen: "imagenes/aloe-vera.jpg",
-    pDescripcion: "Planta suculenta conocida por sus propiedades medicinales. ",
-    tipoPlanta: "Interior",
-    precio: 8.99,
-};
-
-
-
+// Función para pintar todas las plantas
 function pintarTodasLasPlantas() {
     plantas.forEach(planta => {
         pintarPlanta(planta);
     });
 }
 
-pintarTodasLasPlantas();
-
-// pintar las plantas segun filtros
+// Función para filtrar las plantas por tipo
 function filtrarPlantas(tipo) {
     const contenedor = document.getElementById('plantas');
     contenedor.innerHTML = '';
@@ -108,4 +131,28 @@ function filtrarPlantas(tipo) {
 document.getElementById('btn-tipo-todas').addEventListener('click', () => filtrarPlantas('Todas'));
 document.getElementById('btn-tipo-interior').addEventListener('click', () => filtrarPlantas('Interior'));
 document.getElementById('btn-tipo-exterior').addEventListener('click', () => filtrarPlantas('Exterior'));
+
+pintarTodasLasPlantas(); // Llamar a la función para pintar todas las plantas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

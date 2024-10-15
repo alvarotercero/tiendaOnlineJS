@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Hub</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tienda Online</title>
+    <script src="js/data.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" class="logo">Pixel Kingdom</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Videojuegos</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="icons">
+                        <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-phone"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <h1>Shopping Hub</h1>
-        <p>Un espacio de venta colaborativo en el que diferentes proyectos se unen en un mismo lugar.</p>
-        <div id="buttons">
-            <a href=""><div id="cine">Videoclub</div></a>
-            <a href="piensaenverde/index.html"><div id="piensaenverde">Piensa en verde</div></a>
-            <a href="pixelkingdom/index.html"><div id="pixelkingdom">Pixel Kingdom</div></a>
+        <div class="cartShopping">
+            <h3>Carro de compra</h3>
+            <div>
+                <h4 id="cartElement">Sin elementos</h4>
+                <div id="cartProducts"></div>
+                <p id="pTotal">Total: 0 €</p>
+                <div id="emptyButton" class="button">Vaciar carro de compra</div>
+                <div id="confirmButton" class="button">Confirmar compra</div>
+                <div class="close"><i class="fa-solid fa-angles-up"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <section class="videogames"></section>
         </div>
     </main>
+    <footer>
+        <p>© 2024 Pixel Kingdom - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="js/tiendaOnline.js"></script>
 </body>
+
 </html>

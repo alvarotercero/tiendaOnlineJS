@@ -1,8 +1,8 @@
-let carrito = []; // almacenar los artículos en el carrito
+let carrito = [];
 
 // Función para agregar una planta al carrito
 function agregarAlCarrito(planta) {
-    // Verificar si el producto ya está en el carrito
+
     const productoEnCarrito = carrito.find(item => item.nombre === planta.nombre);
     if (productoEnCarrito) {
         productoEnCarrito.cantidad++;
@@ -119,7 +119,7 @@ function pintarTodasLasPlantas() {
     });
 }
 
-// Función para filtrar las plantas por tipo
+// Función para filtrar las plantas 
 function filtrarPlantas(tipo) {
     const contenedor = document.getElementById('plantas');
     contenedor.innerHTML = '';
@@ -132,7 +132,7 @@ document.getElementById('btn-tipo-todas').addEventListener('click', () => filtra
 document.getElementById('btn-tipo-interior').addEventListener('click', () => filtrarPlantas('Interior'));
 document.getElementById('btn-tipo-exterior').addEventListener('click', () => filtrarPlantas('Exterior'));
 
-pintarTodasLasPlantas(); // Llamar a la función para pintar todas las plantas
+pintarTodasLasPlantas();
 
 
 

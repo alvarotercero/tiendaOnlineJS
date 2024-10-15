@@ -26,7 +26,7 @@ header {
 h1 {
     color: white;
     font-size: 28px;
-    /* margin-right: 100px; puedo quitarlo si no molesta con el carrito*/
+
     margin-left: 150px;
 }
 
@@ -57,13 +57,13 @@ h1 {
 .iconos li {
     margin-right: 20px;
     transition: color 0.3s ease;
-    /* Añadido para transición suave */
+
 }
 
 .iconos li:hover {
     color: #f0f0f0;
     transition: color 0.3s ease;
-    /* Cambia a un color claro cuando pases el mouse */
+
 }
 
 .iconos li .last-child {
@@ -113,7 +113,7 @@ h1 {
 
 #plantas article:hover {
     transform: scale(1.05);
-    /* Animación al pasar el mouse */
+
 }
 
 #plantas img {
